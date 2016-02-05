@@ -1,6 +1,6 @@
 ## Closures in loop
 
-######Q: What is the output?
+######Q: 会输出什么?
 
 
 ```js
@@ -40,11 +40,11 @@
 
 ```
 
-######Explanation
+######解释
 
-1. This popularly is known as "closure in loop" issue in JavaScript and beginners to this language invariably encounter this. We need to understand the concept of closure to undestand the output. Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure 'remembers' the environment in which it was created.
+1. 在理解输出前我们需要先理解闭包这个概念。闭包就是函数应用了独立自主的参数变量。换而言之，闭包函数记住了它被创建时候的环境。
 
-2. The problem is that the variable x, within each of the inner functions at #`2` (i.e. `innerFunc`), is bound to the same variable outside of the function. This is because the variables are scoped to the function `init` and not block scoped in JS. Take a look at this modified code which prints the output you expect (`0, 0` ...) to understand the variable scope binding inside the `innerFunc`.
+2. 问题在于变量x, 所有 #`2`的inner函数都绑定了function外的同一个参数。这是因为这个x的作用域在 `init` 函数。看看下面修改后的代码，它会输出你想要的结果 (`0, 0`,`1, 1`,`2, 2` ...)。修改后的代码`temp`的作用域在 `innerFunc`里。
 
 	```js
 		
@@ -77,7 +77,7 @@
 	
 	```
 	 
-3. There are atleast 3 more ways to overcome the closure in loop issue, Dave Herman's article (see the link below) describes them in details. Also, ES6 has provision for block scoping of variable through `let` keyword declaration.
+3. 最起码有3种方法来解决closure in loop的问题, Dave Herman的文章中有提到 (看下面的链接)。另外, ES6 has provision for block scoping of variable through `let` keyword declaration.
 
 4. Do not fret if you still are not clear about how the closures work, it takes sometime to come to terms with closures. So, do read on.
 
