@@ -1,6 +1,6 @@
 ## About delete
 
-######Q: What is the output?
+######Q: 会输出什么?
 
 ```js
 
@@ -33,11 +33,11 @@
 
 ```
 
-######Explanation
+######解释
 
-1. The `delete` operator is useful when we wish to delete properties from an object. As `myVar` is a variable and not an object, at #`1` we see the  assigned value of `myVar` getting printed as `delete` has no effect on it.
-2. Fair enough, but why is the log at #`2` printing the value? When we take a closer look at the `myFunc.bar`, it is an inherited property. So `delete` applied on an inherited property also has no effect and the existing value gets printed.
-3. However, the last log at #`3` prints `undefined` as we have deleted the property directly on the prototype `MyFunc.prototype` because of which the property would no longer exist in the instance `myFunc` as well and hence the log at #`3`.
+1. `delete` 操作符被用于删除一个对象的属性。因为 `myVar` 是一个变量不是一个对象, 因此 #`1` 没有生效。
+2. 那为什么 #`2` 也没有生效呢？仔细看看 `myFunc.bar`，它是一个被继承的属性。因此 #`2` 也没有生效。
+3. #`3` 输出 `undefined` 因为我们直接通过`MyFunc.prototype` 删除了属性。因此所有过`MyFunc`的实例都没有`bar`这个属性了。
 
 ######Link
 
