@@ -1,6 +1,6 @@
 ## Extracted method and bind
 
-######Q: What is the output?
+######Q: 会输出什么?
 
 ```js
 
@@ -27,11 +27,11 @@
 
 ```
 
-######Explanation
+######解释
 
-1. The `console.log` at #`3` prints `undefined` as we have extracted the method from the `myObject` object. So when we invoke `countryInfo`, effectively we are invoking `getMyCountryInfo` method of `myObject` in the global context. In this case, the `this` variable is the `window` object.
-2. As the property `myCountryName` doesn't exist in the `window` object, we see the `undefined` getting printed at #`3`. However, the printed output at #`4` is as expected. Here, the `this` variable is set to `myObject` and hence the appropriate info is getting printed.
-3. One way to overcome the inappropriate object binding is to explicitly bind the object on which we wish to invoke the extracted method while defining `countryInfo` like
+1. #`3`的`console.log`会输出`undefined` 因为执行他的上下文是global。 在这个例子中this指向的是`windows`对象，然而又不存在全局的`myCountryName`因此输出`undefined`。
+2. 因为`windows`对象没有`myCountryName`属性，所以#`3`输出`undefined`。 #`4`的输出是我们想要的结果，因为此时`this`变量指向`myObject`。
+3. 显性的调用bind绑定到对象可以解决提取方法的这个问题。
 
 	```js
 		
