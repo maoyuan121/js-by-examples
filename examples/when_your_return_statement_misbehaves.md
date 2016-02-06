@@ -1,6 +1,6 @@
 ## When your return statement misbehaves
 
-######Q: What is the output?
+######Q: 输出什么?
 
 
 ```js
@@ -19,10 +19,10 @@
 	undefined
 ```
 
-######Explanation
+######解释
 
-1. At first sight, the `console.log` seems to return an object. What we should try to understand here is concept of automatic semicolon insertion.
-2. JavaScript engine is flexible and will insert semicolons automatically where we may have missed them (in this case, though we didn't leave out semicolon intentionally). Probably we wanted to return the object instead. So, essentially the above code can be thought of as:
+1. 初一看以为 `console.log`会返回一个object。在这我们要理解自动插入分号的概念。
+2. 当我们在一行忘记写分号的时候JS引擎会自动给我们插入分号。上面的代码等于下面的代码，这样输出undefined就不难理解了:
 	
 	```js
 		
