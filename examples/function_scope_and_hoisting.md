@@ -1,6 +1,6 @@
 ## Function scope and hoisting
 
-######Q: What is the output?
+######Q: 会输出什么?
 
 ```js
 
@@ -24,13 +24,26 @@
 
 ```
 
-######Explanation:
+######解释:
 
-1. **Hoisting :** Hoisting takes place during the parsing phase of executing a JS code. In this phase, all the variables declarations are taken and a default value of "undefined" is assigned to them. Note that the code is not run in this phase, so any assignment of a value to a variable will not be executed.
+1. **Hoisting :** js引擎会在一个作用域里面查找这个作用域内声明的变量，并把这个变量的声明（注意仅仅是声明，不是赋值）提升到这个作用域的最上面。
 
-	So, the variable "name" will be available to the first statement console.log("The name is : " + name); but the variable will have a value of "undefined".
+	因此第一个console.log("The name is : " + name)语句是读的本地的非全局的name变量; 上面的代码，等于我们下面显性hoisting之后的代码
+	```js
 
-	Hence the first value **undefined** will be logged.
+	var name = "John";
+
+	(function(){
+		var name;  // 注意这里的变化  只是声明  不是赋值
+	  	console.log("The name is : " + name);
+
+	  	name = "Jane";  // 注意这里
+
+	  	console.log("The name is : " +name);
+	})();
+
+	```
+	这样我们理解起来就不困难了。
 
 
 2. **Function Scope :**  Every variable in JS is scoped at a function level, means variables which are declared inside a function is not accessible outside the function in which it is declared.
