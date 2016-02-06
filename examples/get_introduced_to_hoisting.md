@@ -25,8 +25,8 @@
 
 ######Explanation
 
-1. It seems like the return statement at #`1` should return immediately, ignoring rest of the code below it. But that is not what happening here.
-2. To understand the output, you need to understand a concept called *hoisting* (for both variable and function). Function declarations and variable declarations are hoisted to the top of the scope. In this case, the scope is at `func` level. Considering this, we can say that the following code mimicks (and not to be taken literally) the hoisting aspect/behaviour.
+1. 似乎会在#`1`这个语句立刻return, 忽略下面的代码。但事实却不是这样的。
+2. 要理解这个输出结果，需要先理解*hoisting*这个概念 (hoisting包括变量和function两种)。函数声明和变量声明会被提升到作用域的最上面。在这个例子中，作用域是 `func` 级别的。通过下面的代码来演示hoisting的行为。
 
 	```js
 		
@@ -43,8 +43,8 @@
 		console.log(typeof func());
 	
 	```
-3. A thing to note here is that, we have the same variable name `varOrFunc` being used for `function` name and for `var` declaration - in such scenarios, the function declaration takes precedence over the variable declaration and hence the line #`2.1` essentially has no effect on the output and we see that the `varOrFunc` is actually a function type in the `console.log`.
-4. Also, only the variable and function declarations are hoisted. Function expressions are not.
+3. 上面的代码要注意的是，变量名 `varOrFunc` 同时被用于了 `function` 和 `var` 声明 - 在这种情况下，function的声明会覆盖变量声明（fucntion的声明比变量声明的优先级高），因此 #`2.1` 不生效。`console.log`输出的是function。
+4. 注意了只有变量声明和函数声明会被hoist。函数表达式不会被hoisted。
 
 ######Links
 1. [JS Scoping and Hoisting](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html)
