@@ -46,7 +46,7 @@ Uncaught ReferenceError: namedFuncExp is not defined(…)
 
 ###### Warning
 
-Never ever do this, will leave it to you to figure out why.
+Never ever do this, will leave it to you to figure out why.  因为死循环了 不断的调用自己
 
 ```js	
 	(function () {
