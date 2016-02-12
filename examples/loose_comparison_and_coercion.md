@@ -7,10 +7,12 @@
 	(function () {
 		falseString = "false";		// 1
 		if(true) {				
-			var falseString;		// 2			if(falseString) {		// 3
+			var falseString;		// 2
+			if(falseString) {		// 3
 				console.log(falseString == true);	// 4
 				console.log(falseString == false);  // 5
-			}		}
+			}
+		}
 	})();
 	￼	￼	
 ```
@@ -26,15 +28,17 @@
 
 ######Explanation
 
-1. There are four concepts involved in this. Hoisting, scoping, type coercion of boolean expressions and type coercion while loose comparison. The variable declaration of `false` at #`2` is hoisted to the top of the function, hence the it is not having `undefined` rather it has the assigned string `falseStr` value (from #`1`).
-2. Also, the scope in JS is at the function level and not the block level. Next, we see at #`3` the boolean expression and type coercion comes into play. The string is a non empty one and it gets coersed to `true` (though the string value `"false"` as such seems to suggest it should be coerced as `false` but it is not) according to the rules.
-3. The crucial part comes as two `console.log`s where the type coercion happens but this time, in terms of loose comparison with `==`. When JavaScript does a loose comparison on a `Boolean` and a `String`, it attempts to convert them both to a `Number` before doing a strict comparison. The logs can be rewritten as follows:
+1. 上面这段程序涉及到4个概念。hoisting, 作用域，bool表达式的特性强制转换和宽松比较的类型强制转换。 #`2`处的变量声明被提升到了function的最上面，因此在 #`3` 处时`falseString`变量的值不是`undefined`而是`false`字符串。
+2. 同时js的作用域时function级别的，而不是块级的。  #`3` 是一个bool表达式，这里会存在一个类型转换，非空的字符串会被转换成`true`。
+3. 关键的时两个 `console.log`发生的类型转换, 这里的转换是使用`==`发生的宽松比较。当js对1个bool和一个string执行宽松比较的时候，js会把它们转换成数组然后再进行比较。可以重写一下上面的两个console.log，效果一样：
 
 	```js
 		
-		console.log(Number(falseStr) == Number(true));  //console.log(NaN == 1);		console.log(Number(falseStr) == Number(false)); //console.log(NaN == 0);		
+		console.log(Number(falseStr) == Number(true));  //console.log(NaN == 1);
+		console.log(Number(falseStr) == Number(false)); //console.log(NaN == 0);
+		
 	```
-4. This explains why both the statements are printing `false`.
+4. 这样酒能理解为什么两个输出都是`false`了。
 
 #####Link
 
