@@ -28,8 +28,8 @@
 ######Explanation
 
 
-1. When setting an object property, JavaScript will internally convert the parameter/key using its `toString` and since here, we have objects as keys and since these object do not have their own implementation of `toString`, the default `Object.toString` method will be invoked.
-2. In this case, both objects will be converted to "[object Object]". So `root[elementOne]`  and `root[elementTwo]` will be both equivalent to `root["[object Object]"]` and hence, will have the last assigned value. Effectively, `root[elementOne]` and `root[elementTwo]` will be referencing the same value.
+1. 设置一个对象的属性的时候，js会在内部使用`toString`转化parameter/key, 因此当我们把一个对象做为key的时候，如果这些对象没有实现自己的`toString`，默认会使用`Object.toString`来转换。
+2. 因此，这两个对象会转换成 "[object Object]"。所以`root[elementOne]`  和 `root[elementTwo]` 都等于 `root["[object Object]"]` 。所以`root[elementOne]` 和 `root[elementTwo]` 都引用同一个值。
 3. We can verify that, if we override `toString` method in each of the `elementOne` and `elementTwo` objects, we will have a different behavior. Take a look at the following example.
 
 
