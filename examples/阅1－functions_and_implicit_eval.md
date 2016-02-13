@@ -4,8 +4,12 @@
 
 ```js
 
-	var count = 1;	if (function tempFunc(){}) {		count += typeof tempFunc;	}
-	console.log(count);￼	
+	var count = 1;
+	if (function tempFunc(){}) {
+		count += typeof tempFunc;
+	}
+	console.log(count);
+￼	
 ```
 
 ######A: 
@@ -24,7 +28,11 @@
 	```js
 		
 		var count = 1;
-		if (true) {    		eval(function tempFunc(){});    		count += typeof tempFunc;    	}		console.log(count);		// also prints: 1undefined
+		if (true) {
+    		eval(function tempFunc(){});
+    		count += typeof tempFunc;
+    	}
+		console.log(count);		// also prints: 1undefined
 		
 	```
 4. To make it print `1function`, use the function declaration form as shown below.
@@ -33,6 +41,10 @@
 	```js
 		
 		var count = 1;
-		if (true) {    		function tempFunc(){};    		count += typeof tempFunc;    	}		console.log(count);
+		if (true) {
+    		function tempFunc(){};
+    		count += typeof tempFunc;
+    	}
+		console.log(count);
 		
 	```
